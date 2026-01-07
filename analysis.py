@@ -24,7 +24,7 @@ def get_cube_avg_flux(dir_):
     df2 = pd.read_csv(cube_avg_filelo, skiprows=9,sep='\s+',names=names)
     v,x,y,z = df["velocity"],df["+x"]+df["-x"]+df2["+x"]+df2["-x"], df["+y"]+df["-y"]+df2["+y"]+df2["-y"], df["+z"]+df2["+z"]
     v,x,y,z = v.values, x.values, y.values, z.values
-    flux = z*l*w  + l*h*(y+z)
+    flux = z*l*w  + x*h*w + y*l*h
 
     # cube_std_filehi = dir_+"/HiDensity/cube_std.txt"
     # cube_std_filelo = dir_+"/LoDensity/cube_std.txt"
